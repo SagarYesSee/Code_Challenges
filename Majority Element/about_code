@@ -1,0 +1,16 @@
+* Intuition
+A majority element is defined as an element that appears more than [ n/2 ] times in an array of size n. Similarly, in this problem, we need to find all elements that appear more than ⌊ n/3 ⌋ times in an array of size n. We can use a similar approach to solve this problem.
+
+Approach
+Sort the array to have the same numbers in adjacent positions
+Traverse through the array and maintain a counter for each number
+If the current number is the same as the previous number, increment the counter
+If the counter exceeds the floor value (n/3), add the number to the result list
+Since we need to find all elements that appear more than ⌊ n/3 ⌋ times, at max we can have only 2 such numbers (n/3 + n/3 = 2n/3 < n)
+Return the result list
+Complexity
+Time complexity:
+The time complexity of the above algorithm is O(nlogn), where 'n' is the length of the input array. Sorting takes O(nlogn) time and the linear iteration takes O(n) time. Since O(nlogn) is the dominant term, the overall time complexity of the algorithm is O(nlogn).
+
+Space complexity:
+The space complexity of the above algorithm is O(1) because we are not using any additional data structure to store the input array or the result. Sorting in-place does not increase the space complexity as well. Therefore, the space complexity of the algorithm is constant O(1).

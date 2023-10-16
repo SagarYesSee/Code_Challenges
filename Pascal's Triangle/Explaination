@@ -1,0 +1,16 @@
+# Intuition:
+The Pascal's triangle is a triangular array of binomial coefficients, where each number is the sum of the two numbers directly above it. To find the rowIndexth row, we can start with the first row, which consists of a single element, 1. Then, we iteratively calculate each subsequent row by summing the adjacent elements of the previous row.
+
+# Approach:
+1. Check if the `rowIndex` is less than 0. If it is, return an empty list as there is no valid row in this case.
+2. Initialize `res` as a list containing a single element, `[1]`, which represents the first row of Pascal's triangle.
+3. Use a `for` loop to iterate from 1 to `rowIndex`, where `i` represents the current row that we want to calculate.
+4. Create a `next_row` list with `len(res) + 1` elements, all initialized to `0`. This list will store the elements of the next row.
+5. In an inner loop, iterate through the elements of the current row `res`. For each element at index `j`, update the corresponding elements in the `next_row`. We do this by adding `res[j]` to both `next_row[j]` and `next_row[j+1]`. This step follows the rule of Pascal's triangle where each element is the sum of the two elements directly above it.
+6. Update `res` to be the `next_row` after completing the inner loop. This prepares `res` for the next iteration to calculate the next row.
+7. Return the final `res`, which is the rowIndexth row of Pascal's triangle.
+
+# Complexity:
+- Time Complexity: The time complexity of this approach is O(rowIndex^2). In the worst case, we have to iterate through all rows up to the `rowIndex`, and for each row, we perform a sum operation which takes O(row_length) time.
+
+- Space Complexity: The space complexity is O(rowIndex) because we only store two rows at a time (the current row and the next row) and the space required is proportional to the rowIndex.

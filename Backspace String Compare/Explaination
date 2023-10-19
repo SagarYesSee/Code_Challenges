@@ -1,0 +1,40 @@
+Intuition
+The backspace character '#' represents deleting the previous character. Two strings are compared after applying a series of backspace operations.
+
+Approach
+We can solve the given problem statement by following the approach below:
+1.Create two empty strings snew and tnew.
+2.Iterate through string s using a for-loop and perform the following operations:
+  a. Check if current character is a backspace i.e. "#" symbol.
+  b. If step a is true, remove the last character from string snew as we are deleting the previous character.
+  c. If step a is false, add the current character to snew.
+3.Repeat step 2 for string t.
+4.Return True if snew is equal to tnew, else False.
+
+Complexity
+Time complexity:
+The time complexity of this algorithm is O(m+n), where m and n are the lengths of strings s and t respectively. This is because we are iterating through both strings only once.
+
+Space complexity:
+The space complexity of this algorithm is O(m+n), where m and n are the lengths of strings s and t respectively. This is because we are creating two new strings snew and tnew to store the new versions of s and t.
+
+Code
+```
+class Solution:
+    def backspaceCompare(self, s: str, t: str) -> bool:
+        snew = ''
+        tnew = ''
+        for i in range(len(s)):
+            if s[i] == '#':
+                snew = snew[:-1]
+            else:
+                snew += s[i]
+        for j in range(len(t)):
+            if t[j] == '#':
+                tnew = tnew[:-1]
+            else:
+                tnew += t[j]
+        if str(snew) == str(tnew):
+            bool = True
+        return snew == tnew
+```

@@ -1,0 +1,15 @@
+PATH CROSSING DETECTION PROBLEM
+
+Python3
+
+# Intuition:
+The problem asks us to determine whether a given path, consisting of a sequence of characters representing directions, forms a crossing pattern. To solve this problem, we can keep track of the current position and mark visited positions as we go. If we encounter a position that has already been visited, then the path crosses itself and we can return True. If we reach the end of the path without encountering a repeated position, then the path does not cross itself and we can return False.
+
+# Approach:
+To implement this solution, we can use a dictionary to store visited positions. We initialize the dictionary with a single key-value pair for the starting position (0, 0), with the value set to False. As we iterate through the path, we update the dictionary with the current position as a key and set its value to True. If we encounter a repeated position, we can immediately return True. If we reach the end of the path without encountering a repeated position, we can return False.
+
+# Complexity:
+
+*Time complexity: The time complexity is O(n) where n is the length of the input path. This is because we iterate through the path once and update the dictionary for each position, which takes O(1) time per update on average due to constant-time dictionary operations. Additionally, checking for repeated positions also takes O(1) time per update due to constant-time dictionary membership checking. Therefore, the overall time complexity is O(n).
+
+*Space complexity: The space complexity is O(1) due to the use of a dictionary with a fixed number of key-value pairs (the starting position and any subsequent visited positions). This is because dictionaries have an amortized constant-time insertion and deletion complexity, regardless of their size. Therefore, our space usage remains constant throughout the execution of the program.
